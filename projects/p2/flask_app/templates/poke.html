@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+	<a href={{ url_for('index') }} >Home</a>
+	{% for key in info.keys() %}
+		<h3>{{ key }}: 
+		{% if key == 'abilities' %}
+			<ul>
+			{% for ability in info['abilities'] %}
+				<li><a href= {{ url_for('pokemon_with_ability', ability_name=ability) }} >{{ ability }}</a></li>
+			{% endfor %}
+			</ul>
+		{% else %}
+			{{ info[key] }}
+		{% endif %}
+		</h3>
+	{% endfor %}
+{% endblock %}

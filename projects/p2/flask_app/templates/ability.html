@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+	<h2><a href={{ url_for('index') }} >Home</a></h2>
+	<h3>Pokemon with the ability: {{ ability_name }}</h3>
+	<ul>
+	{% for pokemon in pokemon_list %}
+    	<li><a href= {{ url_for('pokemon_info', pokemon_name=pokemon) }} ><h4>{{ pokemon }}</h4></a></li>
+	{% endfor %}
+	</ul>
+{% endblock %}
